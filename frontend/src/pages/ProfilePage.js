@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, Row, Col, Table } from 'react-bootstrap';
-import { userDetailsReducer } from '../reducers/userReducers';
+
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
-import { listMyOrders, getOrderDetails } from '../actions/orderActions';
+import { listMyOrders } from '../actions/orderActions';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
@@ -30,8 +30,8 @@ const ProfilePage = ({ history }) => {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
-  const orderDetails = useSelector((state) => state.orderDetails);
-  const { order } = orderDetails;
+  // const orderDetails = useSelector((state) => state.orderDetails);
+  // const { order } = orderDetails;
 
   useEffect(() => {
     if (!userInfo) {
